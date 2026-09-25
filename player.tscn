@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://c8q06psyxfk0s"]
+
+[ext_resource type="Texture2D" uid="uid://cj8xxvkhpd5qv" path="res://assets/sprites/idlesoldier.png" id="1_4flbx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rh2qv"]
+atlas = ExtResource("1_4flbx")
+region = Rect2(0, 0, 40, 47)
+
+[node name="Player" type="Sprite2D" unique_id=1344864234]
+texture_filter = 1
+texture = SubResource("AtlasTexture_rh2qv")
