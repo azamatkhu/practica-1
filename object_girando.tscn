@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://v1c287vo381f"]
+
+[ext_resource type="Script" uid="uid://c6sliwl2u8uuv" path="res://object_girando.gd" id="1_5x1i0"]
+[ext_resource type="Texture2D" uid="uid://dl3qs24nxtcsu" path="res://assets/sprites/crouchshoot.png" id="2_18ndt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5x1i0"]
+atlas = ExtResource("2_18ndt")
+region = Rect2(0, 0, 41, 32)
+
+[node name="ObjectGirando" type="Node2D" unique_id=1343507852]
+script = ExtResource("1_5x1i0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=631035433]
+texture = SubResource("AtlasTexture_5x1i0")
