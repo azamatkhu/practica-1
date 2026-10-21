@@ -1,15 +1,22 @@
 [gd_scene format=3 uid="uid://cy5k32hda88b6"]
 
-[ext_resource type="PackedScene" uid="uid://v1c287vo381f" path="res://object_girando.tscn" id="1_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://c8q06psyxfk0s" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://beygiftiqp6t1" path="res://canvas_layer.gd" id="2_0xm2m"]
 
 [node name="main" type="Node" unique_id=653550205]
-
-[node name="ObjectGirando" parent="." unique_id=1343507852 instance=ExtResource("1_0xm2m")]
-position = Vector2(583, 366)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2050569238]
 position = Vector2(576, 324)
 
 [node name="Player" parent="." unique_id=1344864234 instance=ExtResource("1_ig7tw")]
 position = Vector2(576, 325)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1491604347]
+script = ExtResource("2_0xm2m")
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=590204033]
+offset_right = 128.0
+offset_bottom = 31.0
+text = "button"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]

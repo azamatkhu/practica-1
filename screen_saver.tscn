@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://buss3q5ev416m"]
+
+[ext_resource type="Texture2D" uid="uid://tfmwekhqqtg8" path="res://assets/sprites/shootstand.png" id="1_hmhxy"]
+[ext_resource type="Script" uid="uid://81u4rmo7t6ia" path="res://screen_saver.gd" id="1_y25cp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u4tv"]
+atlas = ExtResource("1_hmhxy")
+region = Rect2(0, 0, 40, 47)
+
+[node name="ScreenSaver" type="Node2D" unique_id=991071364]
+script = ExtResource("1_y25cp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=33064159]
+texture = SubResource("AtlasTexture_6u4tv")
