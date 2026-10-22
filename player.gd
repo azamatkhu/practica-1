@@ -2,10 +2,13 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed: float = 100.0
+@export var timer: Timer
+
 @onready var sprite2d: Sprite2D = $Sprite2D
 
 func _ready() -> void:
 	print("Jugador preparado")
+	timer.paused = true
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -23,3 +26,6 @@ func _on_timer_timeout() -> void:
 		sprite2d.visible = false
 	else:
 		sprite2d.visible = true	
+
+func _on_button_pressed() -> void:
+	timer.paused = false
