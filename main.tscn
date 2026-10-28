@@ -2,22 +2,47 @@
 
 [ext_resource type="PackedScene" uid="uid://c8q06psyxfk0s" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://beygiftiqp6t1" path="res://canvas_layer.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://doedufagdfwxv" path="res://health_bar.gd" id="3_1bvp3"]
 
 [node name="main" type="Node" unique_id=653550205]
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2050569238]
-position = Vector2(576, 324)
+position = Vector2(321, 181)
 
 [node name="Player" parent="." unique_id=1344864234 instance=ExtResource("1_ig7tw")]
-position = Vector2(576, 325)
+position = Vector2(319, 183)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1491604347]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1491604347 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("2_0xm2m")
+health_bar = NodePath("MarginContainer/HealthBar")
 
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=590204033]
+[node name="Button" type="Button" parent="UI" unique_id=590204033]
+visible = false
 offset_right = 128.0
 offset_bottom = 31.0
 text = "button"
 
-[connection signal="pressed" from="CanvasLayer/Button" to="Player" method="_on_button_pressed"]
-[connection signal="pressed" from="CanvasLayer/Button" to="CanvasLayer" method="_on_button_pressed"]
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1483727306]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="HealthBar" type="Control" parent="UI/MarginContainer" unique_id=203211576]
+layout_mode = 2
+script = ExtResource("3_1bvp3")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer/HealthBar" unique_id=828492971]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 0
+offset_right = 128.0
+offset_bottom = 16.0
+theme_override_constants/separation = 0
+
+[connection signal="pressed" from="UI/Button" to="Player" method="_on_button_pressed"]
+[connection signal="pressed" from="UI/Button" to="UI" method="_on_button_pressed"]

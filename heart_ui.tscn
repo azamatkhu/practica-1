@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://byl86cun0w38r"]
+
+[ext_resource type="Script" uid="uid://di6e70o6ugtff" path="res://heart_ui.gd" id="1_fq772"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_qhayj"]
+load_path = "res://.godot/imported/spritesheet.png-59f7dfdebfc035c80a63445e3bd8a9bd.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u4tv"]
+resource_local_to_scene = true
+atlas = SubResource("CompressedTexture2D_qhayj")
+region = Rect2(16, 80, 16, 16)
+
+[node name="HeartUI" type="Control" unique_id=107729487]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fq772")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=763615260]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_6u4tv")
