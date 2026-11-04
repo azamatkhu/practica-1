@@ -4,18 +4,17 @@
 [ext_resource type="PackedScene" uid="uid://c8q06psyxfk0s" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://beygiftiqp6t1" path="res://canvas_layer.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://doedufagdfwxv" path="res://health_bar.gd" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://dmf62puvgg6id" path="res://target.tscn" id="6_7mycd"]
-[ext_resource type="Script" uid="uid://h36dcs6am4bm" path="res://nodo_girante.gd" id="6_272bh"]
-[ext_resource type="Texture2D" uid="uid://c27j7176uwpa" path="res://icon.svg" id="7_5vw27"]
+[ext_resource type="PackedScene" uid="uid://0wvmkshcuyi3" path="res://enemy.tscn" id="4_1bvp3"]
 
-[node name="main" type="Node" unique_id=653550205]
+[node name="main" type="Node" unique_id=653550205 node_paths=PackedStringArray("player")]
 script = ExtResource("1_1bvp3")
+player = NodePath("Player")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2050569238]
 position = Vector2(321, 181)
 
 [node name="Player" parent="." unique_id=1344864234 instance=ExtResource("1_ig7tw")]
-position = Vector2(140, 99)
+position = Vector2(330, 180)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1491604347 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("2_0xm2m")
@@ -49,27 +48,20 @@ offset_right = 128.0
 offset_bottom = 16.0
 theme_override_constants/separation = 0
 
-[node name="Target" parent="." unique_id=1637095383 instance=ExtResource("6_7mycd")]
-position = Vector2(198, 86)
+[node name="Enemy" parent="." unique_id=245493984 instance=ExtResource("4_1bvp3")]
+position = Vector2(248, 75)
 
-[node name="StatusLabel" type="Label" parent="." unique_id=590025140]
-offset_left = 12.0
-offset_top = 157.0
-offset_right = 54.0
-offset_bottom = 180.0
-text = "Label"
+[node name="Enemy2" parent="." unique_id=751354277 instance=ExtResource("4_1bvp3")]
+position = Vector2(71, 197)
 
-[node name="RoundTimer" type="Timer" parent="." unique_id=177281887]
-wait_time = 5.0
-autostart = true
+[node name="Enemy3" parent="." unique_id=1818436747 instance=ExtResource("4_1bvp3")]
+position = Vector2(104, 123)
 
-[node name="NodoGirante" type="Node2D" parent="." unique_id=1201023465]
-position = Vector2(326, 185)
-script = ExtResource("6_272bh")
+[node name="Enemy4" parent="." unique_id=1850987874 instance=ExtResource("4_1bvp3")]
+position = Vector2(82, 44)
 
-[node name="Sprite2D" type="Sprite2D" parent="NodoGirante" unique_id=1151623456]
-texture = ExtResource("7_5vw27")
+[node name="Enemy5" parent="." unique_id=170643221 instance=ExtResource("4_1bvp3")]
+position = Vector2(28, 118)
 
 [connection signal="pressed" from="UI/Button" to="Player" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Button" to="UI" method="_on_button_pressed"]
-[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

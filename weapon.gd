@@ -9,7 +9,6 @@ class_name Weapon
 var fire_rate: float = 0.2
 var can_shoot: bool = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	aim()
 	
