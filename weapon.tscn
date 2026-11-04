@@ -2,14 +2,21 @@
 
 [ext_resource type="Script" uid="uid://bmit63fqhju2t" path="res://weapon.gd" id="1_o2wld"]
 [ext_resource type="Texture2D" uid="uid://dnkgr5vwrfahu" path="res://spritesheet.png" id="1_swcir"]
+[ext_resource type="PackedScene" uid="uid://bqaw7fj6rwbov" path="res://projectile.tscn" id="2_8xwfw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_div1a"]
 atlas = ExtResource("1_swcir")
 region = Rect2(128, 16, 32, 16)
 
-[node name="Weapon" type="Node2D" unique_id=495228382 node_paths=PackedStringArray("sprite2d")]
+[node name="Weapon" type="Node2D" unique_id=495228382 node_paths=PackedStringArray("sprite2d", "punto")]
 script = ExtResource("1_o2wld")
+projectile_scene = ExtResource("2_8xwfw")
 sprite2d = NodePath("Sprite2D")
+punto = NodePath("Marker2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125675639]
 texture = SubResource("AtlasTexture_div1a")
+offset = Vector2(4, -4)
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=216193571]
+position = Vector2(13, -4)

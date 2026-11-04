@@ -1,16 +1,21 @@
 [gd_scene format=3 uid="uid://cy5k32hda88b6"]
 
+[ext_resource type="Script" uid="uid://cjh5f5toe8ygq" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c8q06psyxfk0s" path="res://player.tscn" id="1_ig7tw"]
 [ext_resource type="Script" uid="uid://beygiftiqp6t1" path="res://canvas_layer.gd" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://doedufagdfwxv" path="res://health_bar.gd" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dmf62puvgg6id" path="res://target.tscn" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://h36dcs6am4bm" path="res://nodo_girante.gd" id="6_272bh"]
+[ext_resource type="Texture2D" uid="uid://c27j7176uwpa" path="res://icon.svg" id="7_5vw27"]
 
 [node name="main" type="Node" unique_id=653550205]
+script = ExtResource("1_1bvp3")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=2050569238]
 position = Vector2(321, 181)
 
 [node name="Player" parent="." unique_id=1344864234 instance=ExtResource("1_ig7tw")]
-position = Vector2(319, 183)
+position = Vector2(140, 99)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1491604347 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("2_0xm2m")
@@ -44,5 +49,27 @@ offset_right = 128.0
 offset_bottom = 16.0
 theme_override_constants/separation = 0
 
+[node name="Target" parent="." unique_id=1637095383 instance=ExtResource("6_7mycd")]
+position = Vector2(198, 86)
+
+[node name="StatusLabel" type="Label" parent="." unique_id=590025140]
+offset_left = 12.0
+offset_top = 157.0
+offset_right = 54.0
+offset_bottom = 180.0
+text = "Label"
+
+[node name="RoundTimer" type="Timer" parent="." unique_id=177281887]
+wait_time = 5.0
+autostart = true
+
+[node name="NodoGirante" type="Node2D" parent="." unique_id=1201023465]
+position = Vector2(326, 185)
+script = ExtResource("6_272bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="NodoGirante" unique_id=1151623456]
+texture = ExtResource("7_5vw27")
+
 [connection signal="pressed" from="UI/Button" to="Player" method="_on_button_pressed"]
 [connection signal="pressed" from="UI/Button" to="UI" method="_on_button_pressed"]
+[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

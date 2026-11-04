@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bqaw7fj6rwbov"]
+
+[ext_resource type="Script" uid="uid://fxebsy5ia0du" path="res://projectile.gd" id="1_a85iw"]
+[ext_resource type="Texture2D" uid="uid://dnkgr5vwrfahu" path="res://spritesheet.png" id="2_qxf0c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxf0c"]
+atlas = ExtResource("2_qxf0c")
+region = Rect2(0, 64, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qxf0c"]
+radius = 4.0
+
+[node name="Projectile" type="Node2D" unique_id=1296422498]
+script = ExtResource("1_a85iw")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1896591188]
+texture = SubResource("AtlasTexture_qxf0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1366005022]
+shape = SubResource("CircleShape2D_qxf0c")

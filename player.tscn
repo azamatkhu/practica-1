@@ -34,6 +34,6 @@ metadata/_custom_type_script = "uid://bjico53p3tfy8"
 autostart = true
 
 [node name="Weapon" parent="." unique_id=495228382 instance=ExtResource("4_hqtel")]
-position = Vector2(15, -13)
+position = Vector2(10, -8)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

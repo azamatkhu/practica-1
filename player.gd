@@ -10,6 +10,8 @@ var current_health: int = 5
 @onready var sprite2d: Sprite2D = $Sprite2D
 @onready var weapon: Weapon = $Weapon
 
+signal interact_requested
+
 func _ready() -> void:
 	current_health = max_health
 	
@@ -18,6 +20,10 @@ func _ready() -> void:
 	
 	await get_tree().process_frame
 	SignalManager.emit_signal("health_changed", max_health, current_health)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("interact"):
+		interact_requested.emit()
 
 func _physics_process(delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")

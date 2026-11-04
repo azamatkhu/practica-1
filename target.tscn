@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dmf62puvgg6id"]
+
+[ext_resource type="Texture2D" uid="uid://dnkgr5vwrfahu" path="res://spritesheet.png" id="1_t2jmu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u4tv"]
+atlas = ExtResource("1_t2jmu")
+region = Rect2(32, 32, 32, 32)
+
+[node name="Target" type="Node2D" unique_id=1637095383]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185517733]
+texture = SubResource("AtlasTexture_6u4tv")
