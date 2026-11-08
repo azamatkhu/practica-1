@@ -10,7 +10,10 @@ region = Rect2(32, 0, 32, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6u4tv"]
 radius = 8.0
 
-[node name="Enemy" type="CharacterBody2D" unique_id=245493984]
+[sub_resource type="CircleShape2D" id="CircleShape2D_4gyqm"]
+radius = 18.027756
+
+[node name="Enemy" type="CharacterBody2D" unique_id=245493984 groups=["enemy"]]
 script = ExtResource("1_4gyqm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2031208266]
@@ -27,3 +30,15 @@ offset_top = -53.0
 offset_right = 23.0
 offset_bottom = -30.0
 text = "hp: 10"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1635472421]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1576836594]
+position = Vector2(0, -12)
+shape = SubResource("CircleShape2D_4gyqm")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1488650216]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

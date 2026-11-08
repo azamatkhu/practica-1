@@ -13,3 +13,8 @@ var playing: bool = true
 
 func _ready() -> void:
 	Global.player = $Player
+
+func _process(delta: float) -> void:
+	var enemies = get_tree().get_nodes_in_group("enemy").size()
+	if enemies <= 0:
+		get_tree().change_scene_to_file("res://win.tscn")

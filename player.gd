@@ -39,6 +39,12 @@ func _physics_process(delta: float) -> void:
 func tomarDaño(amount: int) -> void:
 	current_health -= amount
 	SignalManager.emit_signal("health_changed", max_health, current_health)
+	
+	if current_health <= 0:
+		die()
+
+func die() -> void:
+	get_tree().change_scene_to_file("res://game_over.tscn")
 
 func _on_timer_timeout() -> void:
 	if sprite2d.visible == true:

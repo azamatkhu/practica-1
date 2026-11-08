@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://unlj42rkytlq"]
+
+[ext_resource type="Script" uid="uid://cn3dkt7mymyll" path="res://game_over.gd" id="1_wao2c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xapjj"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vhk50"]
+font_size = 32
+
+[node name="Win" type="Control" unique_id=188678284]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wao2c")
+
+[node name="Panel" type="Panel" parent="." unique_id=1132288616]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_xapjj")
+
+[node name="Label" type="Label" parent="Panel" unique_id=372998895]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 163.0
+offset_right = 420.0
+offset_bottom = 208.0
+text = "has ganado :)"
+label_settings = SubResource("LabelSettings_vhk50")
+
+[node name="Label2" type="Label" parent="Panel" unique_id=1490654953]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 286.0
+offset_right = 496.0
+offset_bottom = 331.0
+text = "pulsa ESCAPE para salir"
+label_settings = SubResource("LabelSettings_vhk50")

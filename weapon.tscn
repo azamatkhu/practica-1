@@ -8,15 +8,26 @@
 atlas = ExtResource("1_swcir")
 region = Rect2(128, 16, 32, 16)
 
-[node name="Weapon" type="Node2D" unique_id=495228382 node_paths=PackedStringArray("sprite2d", "punto")]
+[node name="Weapon" type="Node2D" unique_id=495228382 node_paths=PackedStringArray("sprite2d", "punto", "label")]
 script = ExtResource("1_o2wld")
 projectile_scene = ExtResource("2_8xwfw")
-sprite2d = NodePath("Sprite2D")
-punto = NodePath("Marker2D")
+sprite2d = NodePath("Visuals/Sprite2D")
+punto = NodePath("Visuals/Marker2D")
+label = NodePath("Label")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1125675639]
+[node name="Visuals" type="Node2D" parent="." unique_id=1078273616]
+
+[node name="Sprite2D" type="Sprite2D" parent="Visuals" unique_id=1125675639]
 texture = SubResource("AtlasTexture_div1a")
 offset = Vector2(4, -4)
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=216193571]
+[node name="Marker2D" type="Marker2D" parent="Visuals" unique_id=216193571]
 position = Vector2(13, -4)
+
+[node name="Label" type="Label" parent="." unique_id=1164046524]
+z_index = 99
+offset_left = -17.0
+offset_top = -37.0
+offset_right = 23.0
+offset_bottom = -14.0
+text = "Recargando..."

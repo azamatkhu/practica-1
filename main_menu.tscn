@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://4ij4owgsiky1"]
+
+[ext_resource type="Script" uid="uid://dyq61ds8lqs6w" path="res://main_menu.gd" id="1_06t4h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vhk50"]
+font_size = 32
+
+[node name="MainMenu" type="Control" unique_id=163172599]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_06t4h")
+
+[node name="Panel" type="Panel" parent="." unique_id=1007722088]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Name" type="Label" parent="Panel" unique_id=1439270085]
+layout_mode = 0
+offset_left = 178.0
+offset_top = 99.0
+offset_right = 472.0
+offset_bottom = 144.0
+text = "Binding of Fire v0.1"
+label_settings = SubResource("LabelSettings_vhk50")
+
+[node name="Button" type="Button" parent="Panel" unique_id=2102057590]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 213.0
+offset_right = 344.0
+offset_bottom = 244.0
+text = "Jugar"
+
+[connection signal="pressed" from="Panel/Button" to="." method="_on_button_pressed"]
