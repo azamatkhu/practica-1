@@ -62,3 +62,4 @@ func reload() -> void:
 	
 	label.hide()
 	current_ammo = max_ammo
+	SignalManager.emit_signal("ammo_changed", max_ammo, current_ammo)

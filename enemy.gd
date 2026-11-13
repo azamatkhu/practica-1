@@ -27,6 +27,13 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is Player:
 		atacar(body)
 
+func recibirDano(amount: int) -> void:
+	var tween = get_tree().create_tween()
+	
+	tween.tween_property($Sprite2D, "modulate", ColorPicker, 1.0).set_trans(Tween.TRANS_QUAD)
+	await tween.finished
+	
+
 func atacar(target: Node2D):
 	if !can_attack:
 		return

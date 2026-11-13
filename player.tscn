@@ -12,7 +12,13 @@ region = Rect2(0, 0, 32, 32)
 [sub_resource type="CircleShape2D" id="CircleShape2D_6u4tv"]
 radius = 8.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_6u4tv"]
+atlas = ExtResource("2_onrkg")
+region = Rect2(128, 32, 32, 16)
+
 [node name="Player" type="CharacterBody2D" unique_id=380280925 node_paths=PackedStringArray("timer") groups=["player"]]
+z_index = 1
+y_sort_enabled = true
 texture_filter = 1
 script = ExtResource("1_onrkg")
 timer = NodePath("Timer")
@@ -22,6 +28,7 @@ texture = SubResource("AtlasTexture_0xm2m")
 offset = Vector2(0, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1023376188]
+z_index = 99
 position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_6u4tv")
 
@@ -33,6 +40,13 @@ metadata/_custom_type_script = "uid://bjico53p3tfy8"
 autostart = true
 
 [node name="Weapon" parent="." unique_id=495228382 instance=ExtResource("4_hqtel")]
+z_index = 2
 position = Vector2(10, -8)
+
+[node name="Shadow" type="Sprite2D" parent="." unique_id=1542531987]
+z_index = -1
+y_sort_enabled = true
+position = Vector2(1, 0)
+texture = SubResource("AtlasTexture_6u4tv")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
